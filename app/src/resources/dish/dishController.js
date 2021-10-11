@@ -6,7 +6,10 @@ module.exports = class DishController {
         if (err.kind === "not_found") {
           res
             .status(404)
-            .send({ status: 404, message: `No found dishes in dishes table.` });
+            .send({
+              status: 404,
+              message: `Not found dishes in dishes table.`,
+            });
         } else {
           res.status(500).json({
             status: 500,
@@ -55,7 +58,7 @@ module.exports = class DishController {
         if (err.kind === "not_found") {
           res.status(404).send({
             status: 404,
-            message: `Not found dishes in dishes table with the ${req.params.dishId}.`,
+            message: `Not found dishes in dishes table with the id: ${req.params.dishId}.`,
           });
         } else {
           res.status(500).json({
@@ -85,7 +88,7 @@ module.exports = class DishController {
           if (err.kind === "not_found") {
             res.status(404).send({
               status: 404,
-              message: `Not found dishes in dishes table with the ${req.params.dishId}.`,
+              message: `Not found dishes in dishes table with the id:  ${req.params.dishId}.`,
             });
           } else {
             res.status(500).json({
@@ -107,7 +110,7 @@ module.exports = class DishController {
       if (err) {
         if (err.kind === "not_found") {
           res.status(404).send({
-            message: `Not found dishes in dishes table with the ${req.params.dishId}.`,
+            message: `Not found dishes in dishes table with the id: ${req.params.dishId}.`,
           });
         } else {
           res.status(500).json({
@@ -117,12 +120,10 @@ module.exports = class DishController {
           });
         }
       } else {
-        res
-          .status(200)
-          .json({
-            status: 200,
-            message: `Dish ${req.params.dishId} was successfully deleted from the DB.`,
-          });
+        res.status(200).json({
+          status: 200,
+          message: `Dish ${req.params.dishId} was successfully deleted from the DB.`,
+        });
       }
     });
   };
@@ -143,12 +144,10 @@ module.exports = class DishController {
           });
         }
       } else {
-        res
-          .status(200)
-          .json({
-            status: 200,
-            message: `Dishes were successfully deleted from the DB.`,
-          });
+        res.status(200).json({
+          status: 200,
+          message: `Dishes were successfully deleted from the DB.`,
+        });
       }
     });
   };

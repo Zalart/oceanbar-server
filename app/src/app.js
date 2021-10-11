@@ -3,7 +3,7 @@ const dishRouter = require("./resources/dish/dishRouter");
 const app = express();
 require("dotenv").config();
 
-const port = 5050;
+const port = 5000;
 
 app.use(express.json());
 

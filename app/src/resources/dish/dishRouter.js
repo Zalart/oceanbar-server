@@ -6,6 +6,6 @@ router.route("/:dishId").get(dishController.findById);
 router.route("/").post(dishController.create);
 router.route("/:dishId").put(dishController.updateById);
 router.route("/:dishId").delete(dishController.removeById);
-router.route("/delete-all").delete(dishController.removeAll);
+router.route("/").delete(dishController.removeAll);
 
 module.exports = router;
