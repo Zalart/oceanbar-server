@@ -3,7 +3,7 @@ const dishRouter = require("./resources/dish/dishRouter");
 const app = express();
 require("dotenv").config();
 
-const port = 5000;
+const PORT = process.env.NODE_PORT || 5000;
 
 app.use(express.json());
 
@@ -17,6 +17,6 @@ app.use("/", (req, res, next) => {
 
 app.use("/api/menu", dishRouter);
 
-app.listen(port, () => {
-  console.log(`Server is running at port: ${port}.`);
+app.listen(PORT, () => {
+  console.log(`Server is running at port: ${PORT}.`);
 });
